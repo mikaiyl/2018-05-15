@@ -100,6 +100,8 @@ const win = () => {
     alert("You won!");
     state.maze.innerHTML = "";
     printMazeToDOM();
+    state.charCol = 0;
+    state.charRow = 9;
 }
 
     /*
