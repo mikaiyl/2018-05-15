@@ -114,9 +114,6 @@ const win = () => {
     state.maze.innerHTML = "";
     printMazeToDOM();
     state.charCol = 0;
-<<<<<<< HEAD
-    state.charRow = 9;
-=======
     state.charRow = 9; 
 }
 
@@ -134,7 +131,6 @@ const unAnimate = ( dir) => {
     } else if (dir === "W") {
         state.charachter.classList.remove("animateW");
     }
->>>>>>> flex
 }
 
     /*
