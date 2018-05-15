@@ -69,30 +69,35 @@ const printMazeToDOM = () => {
 
 document.addEventListener('keydown', (event) => {
     const keyName = event.key;
+    const waitTime = 230;
 
     if ( keyName == "ArrowDown" ) {
         if ( mazeArray[state.charRow+1][state.charCol] !== "W" && state.charRow < 14) {
             state.charRow += 1;
-            state.maze.querySelector("div.cell.r" + state.charRow + ".c" + state.charCol).appendChild(state.charachter);
             state.charachter.style.transform = "rotate(0.25turn)";
+            state.charachter.classList.add("animateS");
+            setTimeout(() => unAnimate("S",moveMan()), waitTime);
         }
     } else if ( keyName == "ArrowUp" ) {
         if ( mazeArray[state.charRow-1][state.charCol] !== "W" && state.charRow > 0) {        
             state.charRow -= 1;
-            state.maze.querySelector("div.cell.r" + state.charRow + ".c" + state.charCol).appendChild(state.charachter);
             state.charachter.style.transform = "rotate(-0.25turn)";
+            state.charachter.classList.add("animateN");
+            setTimeout(() => unAnimate("N",moveMan()), waitTime);
         }
     } else if ( keyName == "ArrowLeft" ) {
         if ( mazeArray[state.charRow][state.charCol-1] !== "W" && state.charCol > 0) {        
             state.charCol -= 1;
-            state.maze.querySelector("div.cell.r" + state.charRow + ".c" + state.charCol).appendChild(state.charachter);
             state.charachter.style.transform = "scaleX(-1)";
+            state.charachter.classList.add("animateW");
+            setTimeout(() => unAnimate("W",moveMan()), waitTime);
         }
     } else if ( keyName == "ArrowRight" ) {
         if ( mazeArray[state.charRow][state.charCol+1] !== "W" && state.charCol < 20) {        
             state.charCol += 1;
             state.charachter.style.transform = "rotate(0turn)";
-            state.maze.querySelector("div.cell.r" + state.charRow + ".c" + state.charCol).appendChild(state.charachter);
+            state.charachter.classList.add("animateE");
+            setTimeout(() => unAnimate("E",moveMan()), waitTime);
         }
     }
 });
@@ -112,17 +117,20 @@ const win = () => {
     state.charRow = 9; 
 }
 
-// const animate = ( dir, next) => {
-//     if (dir === "N") {
-//         state.charachter.classList.remove("animateE");
-//     } else if (dir === "S") {
+const moveMan = () => {
+    state.maze.querySelector("div.cell.r" + state.charRow + ".c" + state.charCol).appendChild(state.charachter);
+}
 
-//         state.charachter.classList.remove("animateE");
-//     } else if (dir === "S") {
-//         state.charachter.classList.remove("animateE");
-//     } else if (dir === "S") {
-//         state.charachter.classList.remove("animateE");
-//     } else if (dir === "S") {
+const unAnimate = ( dir) => {
+    if (dir === "N") {
+        state.charachter.classList.remove("animateN");
+    } else if (dir === "S") {
+        state.charachter.classList.remove("animateS");
+    } else if (dir === "E") {
+        state.charachter.classList.remove("animateE");
+    } else if (dir === "W") {
+        state.charachter.classList.remove("animateW");
+    }
 }
 
     /*

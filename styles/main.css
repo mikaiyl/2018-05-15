@@ -19,25 +19,29 @@ div [data-wall="true"] {
 }
 
 .animateN {
-    animation: 1s linear alternate move_man_up;
+    animation-iteration-count: 1;
+    animation: 0.25s linear alternate move_man_up;
 }
 
 .animateS {
-    animation: 1s linear alternate move_man_down;
+    animation-iteration-count: 1;
+    animation: 0.25s linear alternate move_man_down;
 }
 
 .animateE {
-    animation: 1s linear alternate move_man_right;
+    animation-iteration-count: 1;
+    animation: 0.25s linear alternate move_man_right;
 }
 
 .animateW {
-    animation: 1s linear alternate move_man_left;
+    animation-iteration-count: 1;
+    animation: 0.25s linear alternate move_man_left;
 }
 
-@keyframes move_man_up { from { margin-bottom: 0px; } to { margin-bottom: 50px; }  }
+@keyframes move_man_up { from { margin-top: 0px; } to { margin-top: -50px; }  }
 @keyframes move_man_down { from { margin-top: 0px; } to { margin-top: 50px; }  }
 @keyframes move_man_right { from { margin-left: 0px; } to { margin-left: 50px; }  }
-@keyframes move_man_left { from { margin-right: 0px; } to { margin-right: 50px; }  }
+@keyframes move_man_left { from { margin-left: 0px; } to { margin-left: -50px; }  }
 /* Identified */
 
 #content {
