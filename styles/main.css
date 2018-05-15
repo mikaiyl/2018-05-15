@@ -8,28 +8,56 @@ div [data-wall="true"] {
 
 /* Classes */
 
+.row {
+    display: flex;
+    flex-direction: row;
+}
 
+.cell {
+    height: 50px;
+    width: 50px;
+}
 
+.animateN {
+    animation: 1s linear alternate move_man_up;
+}
+
+.animateS {
+    animation: 1s linear alternate move_man_down;
+}
+
+.animateE {
+    animation: 1s linear alternate move_man_right;
+}
+
+.animateW {
+    animation: 1s linear alternate move_man_left;
+}
+
+@keyframes move_man_up { from { margin-bottom: 0px; } to { margin-bottom: 50px; }  }
+@keyframes move_man_down { from { margin-top: 0px; } to { margin-top: 50px; }  }
+@keyframes move_man_right { from { margin-left: 0px; } to { margin-left: 50px; }  }
+@keyframes move_man_left { from { margin-right: 0px; } to { margin-right: 50px; }  }
 /* Identified */
 
 #content {
     align-self: center;
     align-content: center;
-
 }
 
 #maze {
-    display: grid;
-    grid-gap: 0px;
-    grid-auto-columns: 50px;
-    grid-auto-rows: minmax(50px, auto);
+    display: flex;
+    flex-wrap: wrap;
+    width: 1050px;
+    height: 750px;
 }
 
 #running-man {
-    width: 50px;
+    min-width: 50px;
     height: 50px;
     background: url(../images/littlerunningman.gif) bottom center no-repeat;
-    /*position: absolute;*/
-    z-index: 2;
+    position: absolute;
+    z-index: 3;
 }
+
 /* Others */
